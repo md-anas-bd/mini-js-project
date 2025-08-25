@@ -1,0 +1,63 @@
+/* Base styling for the menu */
+body {
+    font-family: Arial, sans-serif;
+}
+
+.navigation {
+    background-color: #333;
+}
+
+.navigation ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+.navigation .menu-item {
+    position: relative;
+}
+
+.navigation .menu-item a {
+    display: block;
+    padding: 15px;
+    color: white;
+    text-decoration: none;
+    background-color: #333;
+}
+
+.navigation .menu-item a:hover {
+    background-color: #555;
+}
+
+/* Dropdown styling */
+.navigation .dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #444;
+    padding: 10px;
+    list-style-type: none;
+    margin: 0;
+}
+
+.navigation .dropdown li a {
+    color: white;
+    padding: 10px;
+    text-decoration: none;
+}
+
+.navigation .dropdown li a:hover {
+    background-color: #666;
+}
+
+/* Show dropdown on hover */
+.navigation .menu-item:hover .dropdown {
+    display: block;
+}
+
+/* Highlight the parent item when capturing */
+.navigation .menu-item.capturing-style > a {
+    background-color: #f80000; /* Green */
+}

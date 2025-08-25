@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <form class="form_fillup">
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username">
+    <label for="email">email:</label>
+    <input type="email" id="email" name = "email">
+    <label for="Password">password:</label>
+    <input type="password" id="password" name = "password">
+    <p class="errorMsg"></p>
+    <button type="submit" class="submiBtn">Submit</button>
+    <p class="print"></p>
+  </form>
+<script>
+ document.addEventListener("DOMContentLoaded", function () {
+  const user = document.querySelector("#username");
+  const email = document.querySelector("#email");
+  const password = document.querySelector("#password");
+  const ErrorMsg = document.querySelector(".errorMsg");
+  const form = document.querySelector(".form_fillup");
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    if (user.value.trim() === "") {
+      ErrorMsg.textContent = "Username is required";
+      ErrorMsg.style.color = "red";
+      return;
+    }
+
+    if (!validateEmail(email.value)) {
+      ErrorMsg.textContent = "Valid email is required";
+      ErrorMsg.style.color = "red";
+      return;
+    }
+
+    if (password.value.length < 6) {
+      ErrorMsg.textContent = "Password must be at least 6 characters";
+      ErrorMsg.style.color = "red";
+      return;
+    }
+
+    ErrorMsg.textContent = "Form submitted successfully!";
+  });
+
+  function validateEmail(email) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  }
+});
+
+</script>
+    
+</body>
+</html>

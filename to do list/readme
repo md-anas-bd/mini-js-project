@@ -1,0 +1,62 @@
+addbtn.addEventListener('click', () => {
+      const taskText = taskInput.value.trim();
+      if (taskText === '') {
+        alert('Please enter a task.');
+        return;
+      }
+      createTask(taskText);
+      taskInput.value = '';
+      showNotification(`🆕 Task "${taskText}" added!`);
+    });
+
+    function createTask(text) {
+      const li = document.createElement('li');
+
+      const span = document.createElement('span');
+      span.textContent = text;
+
+      // Buttons
+      const completeBtn = document.createElement('button');
+      completeBtn.textContent = 'Complete';
+      completeBtn.className = 'complete';
+      completeBtn.onclick = () => {
+        li.classList.toggle('done');
+        const status = li.classList.contains('done') ? 'completed' : 'unmarked';
+        showNotification(`✅ Task "${text}" ${status}.`);
+      };
+
+      const editBtn = document.createElement('button');
+      editBtn.textContent = 'Edit';
+      editBtn.className = 'edit';
+      editBtn.onclick = () => {
+        const newText = prompt('Edit your task:', span.textContent);
+        if (newText !== null && newText.trim() !== '') {
+          span.textContent = newText.trim();
+          showNotification(`✏️ Task updated to "${newText.trim()}"`);
+        }
+      };
+
+      const deleteBtn = document.createElement('button');
+      deleteBtn.textContent = 'Delete';
+      deleteBtn.className = 'delete';
+      deleteBtn.onclick = () => {
+        todoList.removeChild(li);
+        showNotification(`🗑️ Task "${span.textContent}" deleted.`);
+      };
+
+      li.appendChild(span);
+      li.appendChild(completeBtn);
+      li.appendChild(editBtn);
+      li.appendChild(deleteBtn);
+
+      todoList.appendChild(li);
+    }
+
+    function showNotification(message) {
+      const container = document.getElementById('notificationContainer');
+      const notif = document.createElement('div');
+      notif.className = 'notification';
+      notif.textContent = message;
+      container.appendChild(notif);
+      setTimeout(() => notif.remove(), 5000);
+    }

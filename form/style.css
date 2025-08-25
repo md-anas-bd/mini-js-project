@@ -1,0 +1,34 @@
+body {
+    font-family: sans-serif;
+    padding: 20px;
+    background: #f9f9f9;
+  }
+  .form-group {
+    margin-bottom: 15px;
+  }
+  .form-group input {
+    padding: 8px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .form-group small {
+    color: red;
+    display: none;
+  }
+  .form-group.valid input {
+    border: 2px solid green;
+  }
+  .form-group.invalid input {
+    border: 2px solid red;
+  }
+  .form-group.invalid small {
+    display: block;
+  }
+  button:disabled {
+    background: #ccc;
+  }
+  .toggle-password {
+    cursor: pointer;
+    font-size: 0.9em;
+    color: #0077cc;
+  }

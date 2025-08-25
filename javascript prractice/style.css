@@ -1,0 +1,43 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #f3f4f6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  .counter {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    text-align: center;
+  }
+  .number {
+    font-size: 48px;
+    margin: 20px 0;
+    color: #111827;
+  }
+  .buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+  }
+  .btn_plus {
+    padding: 10px 20px;
+    font-size: 18px;
+    background: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 8px;
+     /* just visual, since it's not interactive */
+  }
+  .btn_minus{
+    padding: 10px 20px;
+    font-size: 18px;
+    background: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 8px;
+     /* just visual, since it's not interactive */
+  }
